@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="portal-hero">
+  <h1>Campus Placements,<br><span class="accent-text">Simplified.</span></h1>
+  <p>Connecting students with top companies for a seamless campus recruitment experience.</p>
+</div>
+
+<div class="row text-center g-4">
+
+  <!-- Student Card -->
+  <div class="col-md-4">
+  <div class="card portal-card h-100">
+  <div class="card-body d-flex flex-column align-items-center">
+    <div class="portal-card-icon student">🎓</div>
+    <h4>Student</h4>
+    <p class="text-muted flex-grow-1">Register, browse placement drives, and track your applications in one place.</p>
+    {% if session.get("user_id") %}
+    <a href="/student-dashboard" class="btn btn-primary w-100">Go to Dashboard</a>
+    {% else %}
+    <a href="/register-student" class="btn btn-primary w-100 mb-2">Register</a>
+    <a href="/login" class="btn btn-outline-dark w-100">Login</a>
+    {% endif %}
+  </div>
+  </div>
+  </div>
+
+  <!-- Company Card -->
+  <div class="col-md-4">
+  <div class="card portal-card h-100">
+  <div class="card-body d-flex flex-column align-items-center">
+    <div class="portal-card-icon company">🏢</div>
+    <h4>Company</h4>
+    <p class="text-muted flex-grow-1">Create placement drives, define criteria, and discover top talent from campus.</p>
+    {% if session.get("user_id") %}
+    <a href="/company-dashboard" class="btn btn-success w-100">Go to Dashboard</a>
+    {% else %}
+    <a href="/register-company" class="btn btn-success w-100 mb-2">Register</a>
+    <a href="/login" class="btn btn-outline-dark w-100">Login</a>
+    {% endif %}
+  </div>
+  </div>
+  </div>
+
+  <!-- Admin Card -->
+  <div class="col-md-4">
+  <div class="card portal-card h-100">
+  <div class="card-body d-flex flex-column align-items-center">
+    <div class="portal-card-icon admin">⚙️</div>
+    <h4>Admin</h4>
+    <p class="text-muted flex-grow-1">Oversee companies, approve placement drives, and manage the entire portal.</p>
+    {% if session.get("role") == "admin" %}
+    <a href="/admin-dashboard" class="btn btn-dark w-100">Go to Dashboard</a>
+    {% else %}
+    <a href="/login" class="btn btn-dark w-100">Admin Login</a>
+    {% endif %}
+  </div>
+  </div>
+  </div>
+
+</div>
+
+{% endblock %}

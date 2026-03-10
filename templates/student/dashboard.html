@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Student Dashboard</h2>
+
+<div class="row g-4">
+
+  <div class="col-md-4">
+  <div class="card h-100">
+  <div class="card-body">
+    <div style="font-size:2rem;margin-bottom:0.75rem;">🎯</div>
+    <h5 style="margin-bottom:0.4rem;">Placement Drives</h5>
+    <p class="text-muted" style="font-size:0.83rem;margin-bottom:1.25rem;">Browse open drives and apply to companies that match your profile.</p>
+    <a class="btn btn-primary btn-sm" href="/student/drives">View Drives →</a>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="card h-100">
+  <div class="card-body">
+    <div style="font-size:2rem;margin-bottom:0.75rem;">📋</div>
+    <h5 style="margin-bottom:0.4rem;">My Applications</h5>
+    <p class="text-muted" style="font-size:0.83rem;margin-bottom:1.25rem;">Track the status of every application you've submitted.</p>
+    <a class="btn btn-primary btn-sm" href="/student/applications">View Applications →</a>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="card h-100">
+  <div class="card-body">
+    <div style="font-size:2rem;margin-bottom:0.75rem;">👤</div>
+    <h5 style="margin-bottom:0.4rem;">My Profile</h5>
+    <p class="text-muted" style="font-size:0.83rem;margin-bottom:1.25rem;">Keep your CGPA and academic details up to date.</p>
+    <a class="btn btn-primary btn-sm" href="/student/profile">Edit Profile →</a>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="page-title">My Profile</h2>
+
+<div class="row justify-content-start">
+<div class="col-md-6">
+<div class="card">
+<div class="card-body">
+
+  <form method="POST">
+
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input class="form-control" value="{{ student['full_name'] }}" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Branch</label>
+      <input class="form-control" value="{{ student['branch'] }}" disabled>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">CGPA</label>
+      <input class="form-control" name="cgpa" value="{{ student['cgpa'] }}" placeholder="e.g. 8.5">
+    </div>
+
+    <button class="btn btn-primary">Update Profile</button>
+
+  </form>
+
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

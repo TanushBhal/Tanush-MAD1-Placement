@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Available Drives</h2>
+
+<div class="row g-4">
+
+{% for drive in drives %}
+<div class="col-md-6">
+<div class="card drive-card h-100">
+<div class="card-body">
+
+  <h5 class="card-title">{{ drive["company_name"] }}</h5>
+  <p class="text-muted" style="font-size:0.83rem;margin-bottom:1rem;">{{ drive["job_title"] }}</p>
+
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <span class="drive-tag">💰 <strong>{{ drive["package"] }}</strong></span>
+    <span class="drive-tag">📍 <strong>{{ drive["location"] }}</strong></span>
+  </div>
+
+  <a href="/student/apply/{{ drive['id'] }}" class="btn btn-primary btn-sm">Apply Now →</a>
+
+</div>
+</div>
+</div>
+
+{% else %}
+<div class="col-12">
+  <div class="alert alert-info">No placement drives are available right now. Check back soon.</div>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

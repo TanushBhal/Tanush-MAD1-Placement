@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Admin Dashboard</h2>
+
+<div class="row g-4 mb-4">
+
+  <div class="col-md-3 col-6">
+  <div class="card stat-card text-center">
+  <div class="card-body">
+    <h5>Students</h5>
+    <h3>{{ students }}</h3>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-3 col-6">
+  <div class="card stat-card text-center">
+  <div class="card-body">
+    <h5>Companies</h5>
+    <h3>{{ companies }}</h3>
+    <a href="/admin/companies" class="btn btn-sm btn-dark mt-2">Manage</a>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-3 col-6">
+  <div class="card stat-card text-center">
+  <div class="card-body">
+    <h5>Drives</h5>
+    <h3>{{ drives }}</h3>
+    <a href="/admin/drives" class="btn btn-sm btn-dark mt-2">Review</a>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-3 col-6">
+  <div class="card stat-card text-center">
+  <div class="card-body">
+    <h5>Applications</h5>
+    <h3>{{ applications }}</h3>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+<hr>
+
+<h4 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin-bottom:1rem;margin-top:2rem;">Quick Actions</h4>
+
+<div class="d-flex flex-wrap gap-3">
+  <a href="/admin/companies" class="btn btn-primary">Approve Companies</a>
+  <a href="/admin/drives" class="btn btn-success">Approve Drives</a>
+  <a href="/" class="btn btn-secondary">Go to Home</a>
+</div>
+
+{% endblock %}
