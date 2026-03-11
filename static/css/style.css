@@ -235,3 +235,6 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+* {
+  color: var(--text) !important;
+}

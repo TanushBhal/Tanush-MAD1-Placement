@@ -2,63 +2,363 @@
 
 {% block content %}
 
-<div class="portal-hero">
-  <h1>Campus Placements,<br><span class="accent-text">Simplified.</span></h1>
-  <p>Connecting students with top companies for a seamless campus recruitment experience.</p>
-</div>
+<!-- HERO SECTION -->
+<div class="pp-hero">
 
-<div class="row text-center g-4">
+  <div class="pp-hero-badge">✦ Campus Recruitment Platform</div>
 
-  <!-- Student Card -->
-  <div class="col-md-4">
-  <div class="card portal-card h-100">
-  <div class="card-body d-flex flex-column align-items-center">
-    <div class="portal-card-icon student">🎓</div>
-    <h4>Student</h4>
-    <p class="text-muted flex-grow-1">Register, browse placement drives, and track your applications in one place.</p>
-    {% if session.get("user_id") %}
-    <a href="/student-dashboard" class="btn btn-primary w-100">Go to Dashboard</a>
-    {% else %}
-    <a href="/register-student" class="btn btn-primary w-100 mb-2">Register</a>
-    <a href="/login" class="btn btn-outline-dark w-100">Login</a>
-    {% endif %}
-  </div>
-  </div>
-  </div>
+  <h1 class="pp-hero-title">
+    Find Your<br>
+    <span class="pp-gradient-text">Dream Career</span><br>
+    with Placement Paradise
+  </h1>
 
-  <!-- Company Card -->
-  <div class="col-md-4">
-  <div class="card portal-card h-100">
-  <div class="card-body d-flex flex-column align-items-center">
-    <div class="portal-card-icon company">🏢</div>
-    <h4>Company</h4>
-    <p class="text-muted flex-grow-1">Create placement drives, define criteria, and discover top talent from campus.</p>
-    {% if session.get("user_id") %}
-    <a href="/company-dashboard" class="btn btn-success w-100">Go to Dashboard</a>
-    {% else %}
-    <a href="/register-company" class="btn btn-success w-100 mb-2">Register</a>
-    <a href="/login" class="btn btn-outline-dark w-100">Login</a>
-    {% endif %}
-  </div>
-  </div>
-  </div>
+  <p class="pp-hero-sub">
+    The all-in-one platform where students meet opportunities
+    and companies discover exceptional talent.
+  </p>
 
-  <!-- Admin Card -->
-  <div class="col-md-4">
-  <div class="card portal-card h-100">
-  <div class="card-body d-flex flex-column align-items-center">
-    <div class="portal-card-icon admin">⚙️</div>
-    <h4>Admin</h4>
-    <p class="text-muted flex-grow-1">Oversee companies, approve placement drives, and manage the entire portal.</p>
-    {% if session.get("role") == "admin" %}
-    <a href="/admin-dashboard" class="btn btn-dark w-100">Go to Dashboard</a>
-    {% else %}
-    <a href="/login" class="btn btn-dark w-100">Admin Login</a>
-    {% endif %}
-  </div>
-  </div>
+  <div class="pp-hero-stats">
+    <div class="pp-stat">
+      <span class="pp-stat-num">500+</span>
+      <span class="pp-stat-label">Students</span>
+    </div>
+    <div class="pp-stat-divider"></div>
+    <div class="pp-stat">
+      <span class="pp-stat-num">80+</span>
+      <span class="pp-stat-label">Companies</span>
+    </div>
+    <div class="pp-stat-divider"></div>
+    <div class="pp-stat">
+      <span class="pp-stat-num">200+</span>
+      <span class="pp-stat-label">Drives Posted</span>
+    </div>
   </div>
 
 </div>
+
+<!-- ROLE CARDS -->
+<div class="pp-cards-section">
+
+  <p class="pp-cards-label">— Get started as</p>
+
+  <div class="row g-4">
+
+    <!-- Student -->
+    <div class="col-lg-4">
+    <div class="pp-role-card pp-role-student">
+      <div class="pp-role-glow"></div>
+      <div class="pp-role-top">
+        <div class="pp-role-icon">🎓</div>
+        <div class="pp-role-tag">Student</div>
+      </div>
+      <h3 class="pp-role-title">Launch Your Career</h3>
+      <p class="pp-role-desc">Browse live placement drives, apply in one click, and track every application — all from one dashboard.</p>
+      <ul class="pp-role-features">
+        <li>✓ Browse & apply to drives</li>
+        <li>✓ Track application status</li>
+        <li>✓ Manage your profile</li>
+      </ul>
+      <div class="pp-role-actions">
+        {% if session.get("user_id") %}
+        <a href="/student-dashboard" class="pp-btn pp-btn-blue">Go to Dashboard →</a>
+        {% else %}
+        <a href="/register-student" class="pp-btn pp-btn-blue">Register Free</a>
+        <a href="/login" class="pp-btn pp-btn-ghost">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    </div>
+
+    <!-- Company -->
+    <div class="col-lg-4">
+    <div class="pp-role-card pp-role-company">
+      <div class="pp-role-glow"></div>
+      <div class="pp-role-top">
+        <div class="pp-role-icon">🏢</div>
+        <div class="pp-role-tag">Company</div>
+      </div>
+      <h3 class="pp-role-title">Hire Top Talent</h3>
+      <p class="pp-role-desc">Post placement drives, set eligibility criteria, and connect with the brightest students on campus.</p>
+      <ul class="pp-role-features">
+        <li>✓ Post placement drives</li>
+        <li>✓ Set custom criteria</li>
+        <li>✓ Review applicants</li>
+      </ul>
+      <div class="pp-role-actions">
+        {% if session.get("user_id") %}
+        <a href="/company-dashboard" class="pp-btn pp-btn-green">Go to Dashboard →</a>
+        {% else %}
+        <a href="/register-company" class="pp-btn pp-btn-green">Register Company</a>
+        <a href="/login" class="pp-btn pp-btn-ghost">Login</a>
+        {% endif %}
+      </div>
+    </div>
+    </div>
+
+    <!-- Admin -->
+    <div class="col-lg-4">
+    <div class="pp-role-card pp-role-admin">
+      <div class="pp-role-glow"></div>
+      <div class="pp-role-top">
+        <div class="pp-role-icon">⚙️</div>
+        <div class="pp-role-tag">Admin</div>
+      </div>
+      <h3 class="pp-role-title">Manage the Portal</h3>
+      <p class="pp-role-desc">Approve companies, oversee placement drives, and keep Placement Paradise running smoothly.</p>
+      <ul class="pp-role-features">
+        <li>✓ Approve companies</li>
+        <li>✓ Review all drives</li>
+        <li>✓ Full oversight</li>
+      </ul>
+      <div class="pp-role-actions">
+        {% if session.get("role") == "admin" %}
+        <a href="/admin-dashboard" class="pp-btn pp-btn-amber">Go to Dashboard →</a>
+        {% else %}
+        <a href="/login" class="pp-btn pp-btn-amber">Admin Login</a>
+        {% endif %}
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOME PAGE STYLES -->
+<style>
+
+/* HERO */
+.pp-hero {
+  text-align: center;
+  padding: 5rem 1rem 3.5rem;
+  position: relative;
+}
+
+.pp-hero-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  border: 1px solid rgba(0,229,192,0.3);
+  background: rgba(0,229,192,0.06);
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.pp-hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+  animation: fadeInUp 0.5s ease 0.1s both;
+}
+
+.pp-gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pp-hero-sub {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  animation: fadeInUp 0.5s ease 0.2s both;
+}
+
+.pp-hero-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  animation: fadeInUp 0.5s ease 0.3s both;
+}
+
+.pp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.pp-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.pp-stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.pp-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* CARDS SECTION */
+.pp-cards-section {
+  padding-bottom: 4rem;
+}
+
+.pp-cards-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* ROLE CARDS */
+.pp-role-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.pp-role-card:hover {
+  transform: translateY(-4px);
+}
+
+.pp-role-student:hover { border-color: rgba(79,124,255,0.4); box-shadow: 0 20px 60px rgba(79,124,255,0.12); }
+.pp-role-company:hover { border-color: rgba(46,204,138,0.4); box-shadow: 0 20px 60px rgba(46,204,138,0.12); }
+.pp-role-admin:hover   { border-color: rgba(255,181,71,0.4);  box-shadow: 0 20px 60px rgba(255,181,71,0.12); }
+
+.pp-role-glow {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  opacity: 0.06;
+  filter: blur(30px);
+}
+
+.pp-role-student .pp-role-glow { background: var(--accent); }
+.pp-role-company .pp-role-glow { background: var(--success); }
+.pp-role-admin   .pp-role-glow { background: var(--warn); }
+
+.pp-role-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.pp-role-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.pp-role-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.pp-role-student .pp-role-tag { background: rgba(79,124,255,0.12); color: #7fa4ff; border: 1px solid rgba(79,124,255,0.25); }
+.pp-role-company .pp-role-tag { background: rgba(46,204,138,0.12); color: #2ecc8a; border: 1px solid rgba(46,204,138,0.25); }
+.pp-role-admin   .pp-role-tag { background: rgba(255,181,71,0.12);  color: #ffb547; border: 1px solid rgba(255,181,71,0.25); }
+
+.pp-role-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.pp-role-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.pp-role-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pp-role-features li {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.pp-role-student .pp-role-features li { color: #7fa4ff; }
+.pp-role-company .pp-role-features li { color: #2ecc8a; }
+.pp-role-admin   .pp-role-features li { color: #ffb547; }
+
+.pp-role-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.pp-btn {
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.pp-btn-blue  { background: var(--accent); color: #fff; }
+.pp-btn-blue:hover  { background: #6b91ff; color: #fff; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,124,255,0.35); }
+
+.pp-btn-green { background: var(--success); color: #051f12; }
+.pp-btn-green:hover { background: #40dfa0; color: #051f12; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(46,204,138,0.35); }
+
+.pp-btn-amber { background: var(--warn); color: #1a0f00; }
+.pp-btn-amber:hover { background: #ffc76b; color: #1a0f00; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,181,71,0.35); }
+
+.pp-btn-ghost { background: transparent; color: var(--muted); border-color: var(--border); }
+.pp-btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+@media (max-width: 768px) {
+  .pp-hero-stats { flex-direction: column; gap: 1rem; }
+  .pp-stat-divider { width: 40px; height: 1px; }
+  .pp-hero-title { letter-spacing: -1px; }
+}
+
+</style>
 
 {% endblock %}

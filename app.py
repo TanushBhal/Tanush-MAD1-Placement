@@ -215,28 +215,27 @@ def create_app():
     def admin_dashboard():
         db = get_db()
 
-        students = db.execute(
-            "SELECT COUNT(*) FROM students"
-        ).fetchone()[0]
+        students = db.execute("SELECT COUNT(*) FROM students").fetchone()[0]
+        companies = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
+        drives = db.execute("SELECT COUNT(*) FROM placement_drives").fetchone()[0]
+        applications = db.execute("SELECT COUNT(*) FROM applications").fetchone()[0]
 
-        companies = db.execute(
-            "SELECT COUNT(*) FROM companies"
-        ).fetchone()[0]
+        companies_list = db.execute(
+            "SELECT companies.*, users.email FROM companies JOIN users ON companies.user_id = users.id ORDER BY companies.created_at DESC"
+        ).fetchall()
 
-        drives = db.execute(
-            "SELECT COUNT(*) FROM placement_drives"
-        ).fetchone()[0]
-
-        applications = db.execute(
-            "SELECT COUNT(*) FROM applications"
-        ).fetchone()[0]
+        students_list = db.execute(
+            "SELECT students.*, users.email FROM students JOIN users ON students.user_id = users.id ORDER BY students.created_at DESC"
+        ).fetchall()
 
         return render_template(
             "admin/dashboard.html",
             students=students,
             companies=companies,
             drives=drives,
-            applications=applications
+            applications=applications,
+            companies_list=companies_list,
+            students_list=students_list,
         )
 
     @app.route("/company-dashboard")

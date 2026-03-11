@@ -1,247 +1,195 @@
-# Placement Portal
+<div align="center">
 
-A web-based **Placement Management System** built using **Flask, SQLite, and Bootstrap**.
+<br/>
 
-This portal simulates a **college placement system** where:
+```
+██████╗ ██╗      █████╗  ██████╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗
+██╔══██╗██║     ██╔══██╗██╔════╝██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
+██████╔╝██║     ███████║██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   
+██╔═══╝ ██║     ██╔══██║██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   
+██║     ███████╗██║  ██║╚██████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   
+╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝  
+                                                                                 
+██████╗  █████╗ ██████╗  █████╗ ██████╗ ██╗███████╗███████╗                    
+██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║██╔════╝██╔════╝                    
+██████╔╝███████║██████╔╝███████║██║  ██║██║███████╗█████╗                      
+██╔═══╝ ██╔══██║██╔══██╗██╔══██║██║  ██║██║╚════██║██╔══╝                      
+██║     ██║  ██║██║  ██║██║  ██║██████╔╝██║███████║███████╗                    
+╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝╚══════╝╚══════╝                   
+```
 
-- Students can view and apply to placement drives
-- Companies can register and create placement drives
-- Admin manages approvals and monitors the system
+### 🎓 Campus Recruitment, Reimagined.
 
-The goal of the project is to provide a **centralized platform for managing campus placements efficiently**.
+**A full-stack web platform connecting students, companies, and admins for seamless campus placements.**
 
----
+<br/>
 
-# Features
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.x-000000?style=for-the-badge&logo=flask&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-00e5c0?style=for-the-badge)
 
-## Student
+<br/>
 
-- Register and login
-- View approved placement drives
-- Apply to placement drives
-- Track application status
-- Manage personal profile
-
-## Company
-
-- Register company account
-- Wait for admin approval
-- Create placement drives
-- View created drives and their status
-
-## Admin
-
-- Dashboard with platform statistics
-- Approve company registrations
-- Approve placement drives
-- Monitor system activities
+</div>
 
 ---
 
-# Tech Stack
+## 📌 Overview
 
-## Backend
-- Python
-- Flask
+**Placement Paradise** is a multi-role campus placement management portal built with Flask and SQLite. It handles the complete placement lifecycle — from student registration and company onboarding to admin approval workflows and application tracking.
 
-## Frontend
-- HTML
-- Bootstrap 5
-- Jinja Templates
-
-## Database
-- SQLite
-
-## Version Control
-- Git
-- GitHub
+> Built as part of the IIT Madras BS Degree App Development project.
 
 ---
 
-# Project Structure
+## ✨ Features
 
-```text
-placement_portal/
+### 👤 Student
+- Register and manage academic profile (branch, CGPA)
+- Browse all approved placement drives
+- Apply to drives with one click
+- Track application status (Applied / Shortlisted / Rejected)
+
+### 🏢 Company
+- Register and await admin approval
+- Post placement drives with job details, eligibility, package, and deadline
+- Manage all posted drives from dashboard
+
+### ⚙️ Admin
+- Approve or reject company registrations
+- Approve or reject placement drives
+- View all registered students and companies
+- Full portal oversight from a single dashboard
+
+---
+
+## 🗂️ Project Structure
+
+```
+placement-paradise/
 │
-├── app.py
-├── schema.sql
-├── README.md
+├── app.py                  # Main Flask application & all routes
+├── config.py               # App configuration
+├── schema.sql              # Database schema
+├── seed_data.py            # Script to populate demo data
+├── requirements.txt        # Python dependencies
 │
 ├── instance/
-│   └── database.db
+│   └── database.db         # SQLite database (auto-created)
+│
+├── static/
+│   └── css/
+│       └── style.css       # Custom dark theme styles
 │
 ├── templates/
+│   ├── base.html           # Base layout with navbar
+│   ├── home.html           # Landing page
+│   ├── auth/               # Login & registration pages
+│   ├── student/            # Student dashboard, drives, profile
+│   ├── company/            # Company dashboard, create drive
+│   └── admin/              # Admin dashboard, approvals
 │
-│   ├── base.html
-│
-│   ├── auth/
-│   │   ├── login.html
-│   │   ├── register_student.html
-│   │   └── register_company.html
-│
-│   ├── admin/
-│   │   ├── dashboard.html
-│   │   ├── view_companies.html
-│   │   └── view_drives.html
-│
-│   ├── student/
-│   │   ├── dashboard.html
-│   │   ├── drives.html
-│   │   ├── applications.html
-│   │   └── profile.html
-│
-│   └── company/
-│       ├── dashboard.html
-│       └── create_drive.html
+└── models/
+    └── __init__.py
 ```
 
 ---
 
-# Installation
+## 🛠️ Tech Stack
 
-## 1 Clone the repository
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python, Flask |
+| Database | SQLite (via `sqlite3`) |
+| Auth | Werkzeug password hashing, Flask sessions |
+| Frontend | Jinja2 templates, Bootstrap 5.3 |
+| Fonts | Syne + DM Sans (Google Fonts) |
+| Styling | Custom CSS with dark theme & CSS variables |
 
-```
-git clone https://github.com/your-username/placement-portal.git
-cd placement-portal
-```
+---
 
-## 2 Create a virtual environment
+## 🚀 Getting Started
 
-```
-python -m venv venv
-```
-
-## 3 Activate the environment
-
-### Mac / Linux
-
-```
-source venv/bin/activate
+### 1. Clone the repo
+```bash
+git clone https://github.com/YOUR_USERNAME/placement-paradise.git
+cd placement-paradise
 ```
 
-### Windows
-
-```
-venv\Scripts\activate
-```
-
-## 4 Install dependencies
-
-```
-pip install flask
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
 ```
 
-## 5 Initialize the database
-
-Open this once in your browser:
-
+### 3. Initialize the database
+```bash
+python seed_data.py
 ```
-http://127.0.0.1:5000/init-db
-```
+This creates the database, runs the schema, inserts demo companies, students, and drives.
 
-## 6 Run the application
-
-```
+### 4. Run the app
+```bash
 python app.py
 ```
 
-Open the project:
-
-```
-http://127.0.0.1:5000
-```
+Visit `http://127.0.0.1:5001` in your browser.
 
 ---
 
-# Default Admin Credentials
+## 🔐 Default Login Credentials
 
-```
-Email: admin@portal.com
-Password: admin123
-```
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@portal.com | admin123 |
+| Company | tcs@company.com | company123 |
+| Student | aryan.sharma@college.edu | student123 |
 
-Admin can approve companies and placement drives from the admin dashboard.
+> ⚠️ Change these credentials before deploying to production.
 
 ---
 
-# Application Workflow
+## 🗄️ Database Schema
 
-The portal follows a structured workflow involving **Admin, Company, and Student**.
-
-```text
-1. Company Registration
-   Company registers on the portal.
-
-2. Admin Approval
-   Admin reviews and approves the company.
-
-3. Company Login
-   Once approved, the company can log in.
-
-4. Create Placement Drive
-   Company creates a job drive.
-
-5. Drive Approval
-   Admin reviews and approves the drive.
-
-6. Student Access
-   Approved drives become visible to students.
-
-7. Student Application
-   Students apply to drives.
-
-8. Application Tracking
-   Students track applications and companies review applicants.
 ```
+users ──────────────────────────────────────────────────
+  id, email, password_hash, role, is_active, created_at
 
-## Workflow Diagram
+students ───────────────────────────────────────────────
+  id, user_id (FK), full_name, phone, branch, cgpa
 
-```text
-Company Register
-        ↓
-Admin Approves Company
-        ↓
-Company Creates Drive
-        ↓
-Admin Approves Drive
-        ↓
-Students View Drives
-        ↓
-Students Apply
-        ↓
-Applications Stored in System
+companies ──────────────────────────────────────────────
+  id, user_id (FK), company_name, website, approval_status
+
+placement_drives ───────────────────────────────────────
+  id, company_id (FK), job_title, job_description,
+  eligibility, package, location, deadline, status
+
+applications ───────────────────────────────────────────
+  id, student_id (FK), drive_id (FK), status, applied_at
 ```
 
 ---
 
-# Screens Included
+## 📸 Screenshots
 
-- Login Page
-- Student Dashboard
-- Company Dashboard
-- Admin Dashboard
-- Placement Drive Listings
-- Application Tracking
+> Add screenshots of your portal here after running it locally.
 
----
-
-# Future Improvements
-
-Possible improvements for the system:
-
-- Resume upload and download
-- Email notifications
-- Interview scheduling
-- Advanced admin analytics
-- Application status updates
-- Role-based permission system
-- Password reset through email verification
+| Home Page | Student Dashboard | Admin Dashboard |
+|-----------|------------------|-----------------|
+| `screenshot_home.png` | `screenshot_student.png` | `screenshot_admin.png` |
 
 ---
 
-# Author
+## 📄 License
 
-Tanush Bhal
+This project is for educational purposes as part of the IIT Madras BS Degree program.
 
 ---
+
+<div align="center">
+
+Made with ❤️ for IIT Madras App Development
+
+</div>

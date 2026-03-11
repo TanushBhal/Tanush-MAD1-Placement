@@ -4,8 +4,8 @@
 
 <h2 class="page-title">Admin Dashboard</h2>
 
+<!-- STAT CARDS -->
 <div class="row g-4 mb-4">
-
   <div class="col-md-3 col-6">
   <div class="card stat-card text-center">
   <div class="card-body">
@@ -20,7 +20,6 @@
   <div class="card-body">
     <h5>Companies</h5>
     <h3>{{ companies }}</h3>
-    <a href="/admin/companies" class="btn btn-sm btn-dark mt-2">Manage</a>
   </div>
   </div>
   </div>
@@ -43,17 +42,85 @@
   </div>
   </div>
   </div>
-
 </div>
 
 <hr>
 
-<h4 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin-bottom:1rem;margin-top:2rem;">Quick Actions</h4>
-
-<div class="d-flex flex-wrap gap-3">
-  <a href="/admin/companies" class="btn btn-primary">Approve Companies</a>
-  <a href="/admin/drives" class="btn btn-success">Approve Drives</a>
-  <a href="/" class="btn btn-secondary">Go to Home</a>
+<!-- COMPANIES TABLE -->
+<div class="d-flex align-items-center justify-content-between mt-4 mb-3">
+  <h4 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin:0;">All Companies</h4>
+  <a href="/admin/companies" class="btn btn-sm btn-primary">Pending Approvals</a>
 </div>
+
+{% if companies_list %}
+<div class="table-responsive mb-5">
+<table class="table table-striped">
+<thead class="table-dark">
+<tr>
+  <th>#</th>
+  <th>Company Name</th>
+  <th>Email</th>
+  <th>Website</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+{% for c in companies_list %}
+<tr>
+  <td class="text-muted">{{ loop.index }}</td>
+  <td style="font-weight:500;">{{ c["company_name"] }}</td>
+  <td class="text-muted">{{ c["email"] }}</td>
+  <td class="text-muted">{{ c["website"] or "—" }}</td>
+  <td>
+    {% if c["approval_status"] == "Approved" %}
+    <span class="badge bg-success">Approved</span>
+    {% else %}
+    <span class="badge bg-warning">Pending</span>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% else %}
+<div class="alert alert-info mb-5">No companies registered yet.</div>
+{% endif %}
+
+<!-- STUDENTS TABLE -->
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <h4 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin:0;">All Students</h4>
+</div>
+
+{% if students_list %}
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="table-dark">
+<tr>
+  <th>#</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Branch</th>
+  <th>CGPA</th>
+  <th>Phone</th>
+</tr>
+</thead>
+<tbody>
+{% for s in students_list %}
+<tr>
+  <td class="text-muted">{{ loop.index }}</td>
+  <td style="font-weight:500;">{{ s["full_name"] }}</td>
+  <td class="text-muted">{{ s["email"] }}</td>
+  <td class="text-muted">{{ s["branch"] or "—" }}</td>
+  <td class="text-muted">{{ s["cgpa"] or "—" }}</td>
+  <td class="text-muted">{{ s["phone"] or "—" }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% else %}
+<div class="alert alert-info">No students registered yet.</div>
+{% endif %}
 
 {% endblock %}
