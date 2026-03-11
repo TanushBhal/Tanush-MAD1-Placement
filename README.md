@@ -142,11 +142,11 @@ Visit `http://127.0.0.1:5001` in your browser.
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@portal.com | admin123 |
-| Company | tcs@company.com | company123 |
-| Student | aryan.sharma@college.edu | student123 |
+| Admin | admin@portal.com | admin |
+| Company | tcs@company.com | company |
+| Student | aryan.sharma@college.edu | student |
 
-> ⚠️ Change these credentials before deploying to production.
+
 
 ---
 
@@ -169,17 +169,6 @@ placement_drives ─────────────────────
 applications ───────────────────────────────────────────
   id, student_id (FK), drive_id (FK), status, applied_at
 ```
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of your portal here after running it locally.
-
-| Home Page | Student Dashboard | Admin Dashboard |
-|-----------|------------------|-----------------|
-| `screenshot_home.png` | `screenshot_student.png` | `screenshot_admin.png` |
-
 ---
 
 ## 📄 License
@@ -187,9 +176,3 @@ applications ──────────────────────�
 This project is for educational purposes as part of the IIT Madras BS Degree program.
 
 ---
-
-<div align="center">
-
-Made with ❤️ for IIT Madras App Development
-
-</div>
