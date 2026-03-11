@@ -2,10 +2,36 @@
 
 {% block content %}
 
-<h2 class="page-title">Student Dashboard</h2>
+<h2 class="page-title">Welcome back, {{ student["full_name"].split()[0] }} 👋</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-4">
+  <div class="card text-center">
+  <div class="card-body" style="padding:1.25rem!important;">
+    <div style="font-size:1.6rem;font-weight:800;color:var(--accent);">{{ total }}</div>
+    <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-top:2px;">Applied</div>
+  </div>
+  </div>
+  </div>
+  <div class="col-4">
+  <div class="card text-center">
+  <div class="card-body" style="padding:1.25rem!important;">
+    <div style="font-size:1.6rem;font-weight:800;color:var(--success);">{{ shortlisted }}</div>
+    <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-top:2px;">Shortlisted</div>
+  </div>
+  </div>
+  </div>
+  <div class="col-4">
+  <div class="card text-center">
+  <div class="card-body" style="padding:1.25rem!important;">
+    <div style="font-size:1.6rem;font-weight:800;color:var(--danger);">{{ rejected }}</div>
+    <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-top:2px;">Rejected</div>
+  </div>
+  </div>
+  </div>
+</div>
 
 <div class="row g-4">
-
   <div class="col-md-4">
   <div class="card h-100">
   <div class="card-body">
@@ -16,18 +42,16 @@
   </div>
   </div>
   </div>
-
   <div class="col-md-4">
   <div class="card h-100">
   <div class="card-body">
     <div style="font-size:2rem;margin-bottom:0.75rem;">📋</div>
     <h5 style="margin-bottom:0.4rem;">My Applications</h5>
-    <p class="text-muted" style="font-size:0.83rem;margin-bottom:1.25rem;">Track the status of every application you've submitted.</p>
+    <p class="text-muted" style="font-size:0.83rem;margin-bottom:1.25rem;">Track the status of every application you have submitted.</p>
     <a class="btn btn-primary btn-sm" href="/student/applications">View Applications →</a>
   </div>
   </div>
   </div>
-
   <div class="col-md-4">
   <div class="card h-100">
   <div class="card-body">
@@ -38,7 +62,6 @@
   </div>
   </div>
   </div>
-
 </div>
 
 {% endblock %}

@@ -235,6 +235,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
-* {
-  color: var(--text) !important;
-}
+
+/* FIX BLACK TEXT — force all table cell text to theme color */
+.table tbody td { color: var(--text) !important; }
+.table tbody tr td:nth-child(2) { color: var(--accent2) !important; font-weight: 600 !important; }
